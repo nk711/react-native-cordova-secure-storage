@@ -1,6 +1,8 @@
 # react-native-cordova-secure-storage
 
-A native implementation of the cordova-based secure storage plugin.
+A native implementation of the cordova-based secure storage plugin as an NPM package. 
+
+
 
 ## Installation
 
