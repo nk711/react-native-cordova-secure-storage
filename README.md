@@ -19,11 +19,15 @@ npm install react-native-cordova-secure-storage
 ## Usage
 
 ```js
-import { multiply } from "react-native-cordova-secure-storage";
+import SecureStorage from 'react-native-cordova-secure-storage';
 
 // ...
-
-const result = await multiply(3, 7);
+ try {
+    const keys = SecureStorage.keys();
+    console.log(keys);
+  } catch (e) {
+    console.log(e)
+  }
 ```
 
 ## Contributing
