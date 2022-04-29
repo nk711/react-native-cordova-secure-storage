@@ -1,31 +1,27 @@
 import * as React from 'react';
 
-import { StyleSheet, View, Text } from 'react-native';
-import { multiply } from 'react-native-cordova-secure-storage';
+import { View, Button } from 'react-native';
+import SecureStorage from 'react-native-cordova-secure-storage';
 
 export default function App() {
-  const [result, setResult] = React.useState<number | undefined>();
+  const onPress = async() => {
+    try {
+      const result = await SecureStorage.keys();
+      console.log("test", result);
 
-  React.useEffect(() => {
-    multiply(3, 7).then(setResult);
-  }, []);
+    } catch (e) {
+      console.log(e)
+    }
+  }
 
   return (
-    <View style={styles.container}>
-      <Text>Result: {result}</Text>
+    <View>
+      <Button 
+            title = "CLick to invoke your native module!"
+            color = "#841584"
+            onPress = {onPress}
+          />
     </View>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  box: {
-    width: 60,
-    height: 60,
-    marginVertical: 20,
-  },
-});
