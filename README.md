@@ -32,7 +32,7 @@ try {
 
 ## Interface
 
-```js
+```tsx
 import {NativeModules} from 'react-native';
 const { SecureStorage } = NativeModules; 
 
